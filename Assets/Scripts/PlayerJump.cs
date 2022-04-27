@@ -10,10 +10,9 @@ public class PlayerJump : MonoBehaviour
 
     private Rigidbody rb;
     
-    private Vector3 playerVelocity = new Vector3(0.0f, 0.0f, 0.0f);
     private bool isGrounded;
     public float gravity = -9.81f;
-    [SerializeField] private float jumpHeight = 3f;
+    [SerializeField] private float jumpHeight = 900f;
     private bool jumpPressed = false;
 
     // Start is called before the first frame update
@@ -29,8 +28,7 @@ public class PlayerJump : MonoBehaviour
     void MovementJump() {
         // If on the ground, stop vertical movement
         if (jumpPressed && isGrounded) {
-            playerVelocity.y += jumpHeight;
-            rb.AddForce(new Vector3(0.0f, 900.0f, 0.0f));
+            rb.AddForce(new Vector3(0.0f, 1300f, 0.0f));
             jumpPressed = false;
         }
 
