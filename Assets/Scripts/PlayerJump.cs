@@ -27,13 +27,8 @@ public class PlayerJump : MonoBehaviour
     }
 
     void MovementJump() {
-        isGrounded = true;
-
         // If on the ground, stop vertical movement
-
-
         if (jumpPressed && isGrounded) {
-            Debug.Log("Geht rein bruda");
             playerVelocity.y += jumpHeight;
             rb.AddForce(new Vector3(0.0f, 900.0f, 0.0f));
             jumpPressed = false;
@@ -42,8 +37,18 @@ public class PlayerJump : MonoBehaviour
     }
 
     void OnJump() {
-        if (rb.velocity.y == 0) {
+        if (rb.velocity.y < 0.3f && jumpPressed == false) {
             jumpPressed = true;
         } 
+    }
+
+    void OnCollisionStay(Collision collision) {
+        if (collision.gameObject.CompareTag("Ground")) {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision) {
+        isGrounded = false;
     }
 }
