@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 15;
     public Transform cam;
-    
+    private bool isGrounded;
     private Rigidbody rb;
 
     // Keyboard movement data
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         // Check if keyboard input movement is "existent", if so, calculate movement direction based on camera angle and add it as AddForce to the rb
         if (movement.magnitude >= 0.1f) {
@@ -39,5 +40,4 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveDir.normalized * speed);
         }
     }
-    
 }
