@@ -2627,9 +2627,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794a5704514c38c459de6ff0ea65ae02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1772829763}
-  cam: {fileID: 1982665755}
-  followTransform: {fileID: 1772829768}
+  lookAt: {fileID: 1772829768}
+  Player: {fileID: 1772829768}
+  distance: 15.73
+  sensivity: 229.46
 --- !u!1 &1983484792
 GameObject:
   m_ObjectHideFlags: 3
