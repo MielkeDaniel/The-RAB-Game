@@ -12,18 +12,10 @@ public class CamController : MonoBehaviour
  
     public Transform Player;
  
-    public float distance = 10.0f;
+    public float distance = 20.0f;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
-    public float sensivity = 4.0f;
- 
- 
-    // Start is called before the first frame update
-    void Start()
-    {
-     
- 
-    }
+    public float sensivity = 800.0f;
  
     // Update is called once per frame
     void LateUpdate()
