@@ -12,6 +12,16 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void StartLevelTwo()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void StartLevelThree()
+    {
+        SceneManager.LoadScene(3);
+    }
+
     //exit the game by clicking quit button
     public void QuitGame()
     {
