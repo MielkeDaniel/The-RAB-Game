@@ -44,7 +44,10 @@ public class PlayerJump : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Finish1")) {
-            Debug.Log("finished");
+            levelCompleted.SetActive(true);
+        } else if (collision.gameObject.CompareTag("Finish2")) {
+            levelCompleted.SetActive(true);
+        } else if (collision.gameObject.CompareTag("Finish3")) { 
             levelCompleted.SetActive(true);
         }
     }

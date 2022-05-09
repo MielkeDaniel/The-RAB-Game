@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Transform cam;
     private bool isGrounded;
     private Rigidbody rb;
+    [SerializeField] public GameObject pauseScreen;
 
     // Keyboard movement data
     private float movementX;
@@ -18,6 +19,23 @@ public class PlayerController : MonoBehaviour
     void Start()
     {   
         rb = GetComponent<Rigidbody>();
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    void OnPause() {
+        if(Time.timeScale == 1){
+            Time.timeScale = 0;
+            pauseScreen.SetActive(true);
+        } else{
+            pauseScreen.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
+
+     public void onContinue() {
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void OnMove(InputValue movementValue)

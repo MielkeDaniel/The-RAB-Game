@@ -20,7 +20,7 @@ public class RespawnOnFall : MonoBehaviour
     void Update()
     {
         if(rb.transform.position.y < minHeightForDeath) {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

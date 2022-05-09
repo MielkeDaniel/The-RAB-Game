@@ -22,6 +22,15 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    public void StartLevelFour()
+    {
+        SceneManager.LoadScene(4);
+    }
+
+    public void MainMenu() {
+        SceneManager.LoadScene(0);
+    }
+
     //exit the game by clicking quit button
     public void QuitGame()
     {
