@@ -9,26 +9,26 @@ public class Menu : MonoBehaviour
     //load next scene after a level is completed or after game started
     public void StartLevelOne()
     {
-        SceneManager.LoadScene(1);
+        LevelManager.instance.StartLevelOne();
     }
 
     public void StartLevelTwo()
     {
-        SceneManager.LoadScene(2);
+        LevelManager.instance.StartLevelTwo();
     }
 
     public void StartLevelThree()
     {
-        SceneManager.LoadScene(3);
+        LevelManager.instance.StartLevelThree();
     }
 
     public void StartLevelFour()
     {
-        SceneManager.LoadScene(4);
+        LevelManager.instance.StartLevelFour();
     }
 
     public void MainMenu() {
-        SceneManager.LoadScene(0);
+        LevelManager.instance.MainMenu();
     }
 
     //exit the game by clicking quit button

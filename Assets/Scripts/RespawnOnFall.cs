@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class RespawnOnFall : MonoBehaviour
 {
+    [SerializeField] private Text lifeCountText;
     private Rigidbody rb;
     private Vector3 spawnPoint = new Vector3();
     private float minHeightForDeath;
@@ -14,13 +16,14 @@ public class RespawnOnFall : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         minHeightForDeath = -30;
         spawnPoint = transform.position;
+        GameManager.instance.initLifeCount(lifeCountText);
     }
 
     // Update is called once per frame
     void Update()
     {
         if(rb.transform.position.y < minHeightForDeath) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.instance.handleLifeCount();
         }
     }
 }
