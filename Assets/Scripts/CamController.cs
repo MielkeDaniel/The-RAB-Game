@@ -12,25 +12,45 @@ public class CamController : MonoBehaviour
  
     public Transform Player;
  
-    public float distance = 20.0f;
+    private float zoomMultiplier = 10f;
+    public float targetZoom;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
     public float sensivity = 800.0f;
+
+    Camera cam;
+
+    
+
+    void Start()
+    {
+        cam = gameObject.GetComponent<Camera>();
+        cam.orthographicSize = 20f;
+        targetZoom = cam.orthographicSize;
+    }
  
     // Update is called once per frame
     void LateUpdate()
     {
+
+        float scrollData = Input.GetAxis("Mouse ScrollWheel");
+
+        targetZoom -= scrollData * zoomMultiplier;
+        targetZoom = Mathf.Clamp(targetZoom, 4.5f, 30f);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetZoom, Time.deltaTime * 10);
  
         currentX += Input.GetAxis("Mouse X") * sensivity * Time.deltaTime;
         currentY += Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
  
         currentY = Mathf.Clamp(currentY, YMin, YMax);
  
-        Vector3 Direction = new Vector3(0, 0, -distance);
+        Vector3 Direction = new Vector3(0, 0, -cam.orthographicSize);
         Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
         transform.position = lookAt.position + rotation * Direction * -1;
  
         transform.LookAt(lookAt.position);
     }
+
+
 }
  
