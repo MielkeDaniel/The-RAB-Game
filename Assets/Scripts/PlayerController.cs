@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private Rigidbody rb;
     [SerializeField] public GameObject pauseScreen;
+    Vector2 movementVector;
+    Vector2 lastMovement;
 
     // Keyboard movement data
     private float movementX;
@@ -41,10 +43,11 @@ public class PlayerController : MonoBehaviour
     private void OnMove(InputValue movementValue)
     {
         // Get Input movement from unitys new Input System
-        Vector2 movementVector = movementValue.Get<Vector2>();
+        movementVector = movementValue.Get<Vector2>();
         // safe to prefixed keyboard variables
         movementX = movementVector.x;
         movementY = movementVector.y;
+        lastMovement = movementVector;
     }
 
     private void FixedUpdate()
@@ -58,4 +61,12 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveDir.normalized * speed);
         }
     }
+
+    void OnCollisionStay(Collision collision) {
+    
+    }
+
+    void OnCollisionExit(Collision collision) {
+            
+        }
 }

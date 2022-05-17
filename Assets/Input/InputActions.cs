@@ -53,6 +53,24 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slowmotion"",
+                    ""type"": ""Button"",
+                    ""id"": ""27d27cca-ae86-44d5-87f8-49b356e9f274"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpecialJump"",
+                    ""type"": ""Button"",
+                    ""id"": ""d5298917-2f4f-4af7-97a1-d796f1b95d13"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -143,6 +161,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3efbae85-7a2d-4940-89a1-50bb941301a5"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Hold(duration=0.2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slowmotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e46d4ffe-3ea4-4712-9dcd-93b4f3f8716a"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpecialJump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -154,6 +194,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_Slowmotion = m_Player.FindAction("Slowmotion", throwIfNotFound: true);
+        m_Player_SpecialJump = m_Player.FindAction("SpecialJump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -216,6 +258,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_Slowmotion;
+    private readonly InputAction m_Player_SpecialJump;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -223,6 +267,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @Slowmotion => m_Wrapper.m_Player_Slowmotion;
+        public InputAction @SpecialJump => m_Wrapper.m_Player_SpecialJump;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -241,6 +287,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Slowmotion.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlowmotion;
+                @Slowmotion.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlowmotion;
+                @Slowmotion.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlowmotion;
+                @SpecialJump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialJump;
+                @SpecialJump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialJump;
+                @SpecialJump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialJump;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -254,6 +306,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Slowmotion.started += instance.OnSlowmotion;
+                @Slowmotion.performed += instance.OnSlowmotion;
+                @Slowmotion.canceled += instance.OnSlowmotion;
+                @SpecialJump.started += instance.OnSpecialJump;
+                @SpecialJump.performed += instance.OnSpecialJump;
+                @SpecialJump.canceled += instance.OnSpecialJump;
             }
         }
     }
@@ -263,5 +321,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnSlowmotion(InputAction.CallbackContext context);
+        void OnSpecialJump(InputAction.CallbackContext context);
     }
 }

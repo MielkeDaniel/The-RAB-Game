@@ -2259,6 +2259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6615fc4ab658c884ab8aae954356a2e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 1982665755}
   gravity: -9.81
   jumpHeight: 1200
   levelCompleted: {fileID: 680577793}
@@ -2483,7 +2484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAt: {fileID: 1772829768}
   Player: {fileID: 1772829768}
-  distance: 31.08
+  targetZoom: 0
   sensivity: 1140.93
 --- !u!114 &1982665758
 MonoBehaviour:
