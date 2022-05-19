@@ -8,6 +8,7 @@ TagManager:
   - Finish1
   - Finish2
   - Finish3
+  - Wall
   layers:
   - Default
   - TransparentFX

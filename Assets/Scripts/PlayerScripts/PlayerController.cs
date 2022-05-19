@@ -5,11 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 15;
-    public Transform cam;
+    private float speed = 35;
+    private bool paused = false;
+    private Transform cam;
     private bool isGrounded;
     private Rigidbody rb;
-    [SerializeField] public GameObject pauseScreen;
+    private GameObject pauseScreen;
     Vector2 movementVector;
     Vector2 lastMovement;
 
@@ -17,19 +18,29 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
 
-    // Start is called before the first frame update
-    void Start()
-    {   
+
+    void Awake() {
         rb = GetComponent<Rigidbody>();
-        pauseScreen.SetActive(false);
+        cam = GameObject.Find("Main Camera").GetComponent<Transform>();
+        pauseScreen = GameObject.Find("PauseScreen");
         Time.timeScale = 1;
     }
 
+    // Start is called before the first frame update
+    void Start()
+    {   
+        pauseScreen.SetActive(false);
+        Debug.Log("start");
+    }
+
     void OnPause() {
-        if(Time.timeScale == 1){
+        
+        if(!paused) {
             Time.timeScale = 0;
+            this.paused = true;
             pauseScreen.SetActive(true);
-        } else{
+        } else {
+            this.paused = false;
             pauseScreen.SetActive(false);
             Time.timeScale = 1;
         }
@@ -52,7 +63,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         // Check if keyboard input movement is "existent", if so, calculate movement direction based on camera angle and add it as AddForce to the rb
         if (movement.magnitude >= 0.1f) {
@@ -61,12 +71,4 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveDir.normalized * speed);
         }
     }
-
-    void OnCollisionStay(Collision collision) {
-    
-    }
-
-    void OnCollisionExit(Collision collision) {
-            
-        }
 }
