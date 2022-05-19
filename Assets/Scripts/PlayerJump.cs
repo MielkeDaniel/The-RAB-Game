@@ -17,11 +17,19 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] public GameObject levelCompleted;
     private bool rightMouseHold;
 
+    private float slowMotionTimeScale = 0.4f;
+
+    private float startTimeScale;
+    private float startFixedDeltatime;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         levelCompleted.SetActive(false);
+
+        startTimeScale = Time.timeScale;
+        startFixedDeltatime = Time.fixedDeltaTime;
     }
 
     private void FixedUpdate() {
@@ -30,19 +38,18 @@ public class PlayerJump : MonoBehaviour
 
     private void Update() {
         if(isGrounded) {
-            Time.timeScale = 1;
+            StopSlowMotion();
         }
  
         if(Input.GetMouseButtonDown(1)) {
             if(!isGrounded) {
-                Time.timeScale = 0.1f;
+                StartSlowMotion();
                 rightMouseHold = true;
             }
         }
             
-
         if(Input.GetMouseButtonUp(1)) {
-            Time.timeScale = 1;
+            StopSlowMotion();
             rightMouseHold = false;
         }
 
@@ -50,8 +57,8 @@ public class PlayerJump : MonoBehaviour
 
     void OnSpecialJump() {
         if(rightMouseHold) {
-            Time.timeScale = 1;
-            rb.AddForce(cam.transform.forward * 2000);
+            StopSlowMotion();
+            rb.AddForce(cam.transform.forward * 3000);
         }
     }
 
@@ -62,6 +69,16 @@ public class PlayerJump : MonoBehaviour
             jumpPressed = false;
         }
 
+    }
+
+    private void StartSlowMotion() {
+        Time.timeScale = slowMotionTimeScale;
+        Time.fixedDeltaTime = startFixedDeltatime * slowMotionTimeScale;
+    }
+
+        private void StopSlowMotion() {
+        Time.timeScale = startTimeScale;
+        Time.fixedDeltaTime = startFixedDeltatime;
     }
 
     void OnJump() {
