@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private Transform cam;
     private bool isGrounded;
     private Rigidbody rb;
-    private GameObject pauseScreen;
+    GameObject pauseScreen;
     Vector2 movementVector;
     Vector2 lastMovement;
 

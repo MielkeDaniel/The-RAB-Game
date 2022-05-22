@@ -9,6 +9,7 @@ TagManager:
   - Finish2
   - Finish3
   - Wall
+  - Fire
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     private float time = 30;
     private int lifes = 3;
+    private int health = 100;
 
     public void Awake() {
         if(instance == null) {
@@ -48,15 +49,33 @@ public class GameManager : MonoBehaviour
          lifeCountText.text = "Lifes: " +  lifes.ToString();
      }
 
+     public void initHealthCount (Text healthCountText) {
+         healthCountText.text = "Health: " + health.ToString();
+     }
+
+    public void handleHealthCount () {
+        if(health > 1) {
+            health--;
+        } else {
+            handleLifeCount();
+        }
+     }
+
     public void handleLifeCount() { 
         if (lifes > 1) {
             lifes--;
+            this.health = 100;
             this.resetScene();
             }
         else {
-            this.lifes = 3;
+            resetLifesAndHealth();
             LevelManager.instance.StartLevelOne();
         }
+    }
+
+    public void resetLifesAndHealth() {
+        this.lifes = 3;
+        this.health = 100;
     }
 
 }

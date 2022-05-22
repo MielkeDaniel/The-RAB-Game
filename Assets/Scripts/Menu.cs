@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
     //load next scene after a level is completed or after game started
     public void StartLevelOne()
     {
+        GameManager.instance.resetLifesAndHealth();
         LevelManager.instance.StartLevelOne();
     }
 

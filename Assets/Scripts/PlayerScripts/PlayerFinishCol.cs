@@ -9,7 +9,7 @@ public class PlayerFinishCol : MonoBehaviour
 {
 
     private Rigidbody rb;
-    private GameObject levelCompleted;
+    GameObject levelCompleted;
 
 
     // Start is called before the first frame update
