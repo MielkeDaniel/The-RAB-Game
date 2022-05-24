@@ -25,7 +25,7 @@ public class WallJump : MonoBehaviour
     void OnCollisionStay(Collision collision) {   
         if (collision.gameObject.CompareTag("Wall") && !playerJump.isGrounded) {
             if (Input.GetKey("space")) {
-                rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f) + collision.contacts[0].normal * 350);
+                rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f) + collision.contacts[0].normal * 40);
             }
         }
     }

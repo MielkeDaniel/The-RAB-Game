@@ -33,7 +33,7 @@ public class PlayerJump : MonoBehaviour
     }
 
     void OnJump() {
-        if (rb.velocity.y < 0.3f && jumpPressed == false && isGrounded) {
+        if (jumpPressed == false && isGrounded) {
             jumpPressed = true;
         } 
     }
