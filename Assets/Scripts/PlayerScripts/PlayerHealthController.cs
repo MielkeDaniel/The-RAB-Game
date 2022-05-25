@@ -12,10 +12,24 @@ public class PlayerHealthController : MonoBehaviour
     }
 
     void OnParticleCollision(GameObject other) {
-        if(other.tag == "Player") {
-            GameManager.instance.handleHealthCount();
+        if(other.tag == "Fire") {
+            GameManager.instance.fireDamageHandler();
             GameManager.instance.initHealthCount(healthCountText);
         }
-        
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if(other.gameObject.CompareTag("Heart")) {
+            GameManager.instance.addHealth();
+            GameManager.instance.initHealthCount(healthCountText);
+            Destroy(other.gameObject);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.CompareTag("Arrow")) {
+            GameManager.instance.arrowDamageHandler();
+            GameManager.instance.initHealthCount(healthCountText);
+        }
     }
 }

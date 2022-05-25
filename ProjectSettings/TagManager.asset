@@ -10,6 +10,9 @@ TagManager:
   - Finish3
   - Wall
   - Fire
+  - Heart
+  - Water
+  - Arrow
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ public class BoostJump : MonoBehaviour
 
     private float startTimeScale;
     private float startFixedDeltatime;
+    private bool superJumpAvailable;
 
     PlayerJump playerJump;
 
@@ -25,12 +26,13 @@ public class BoostJump : MonoBehaviour
         playerJump = rb.GetComponent<PlayerJump>();
         startTimeScale = Time.timeScale;
         startFixedDeltatime = Time.fixedDeltaTime;
+        superJumpAvailable = true;
     }
 
 
     private void Update() {
         if(Input.GetMouseButtonDown(1)) {
-            if(!playerJump.isGrounded) {
+            if(!playerJump.isGrounded && superJumpAvailable) {
                 StartSlowMotion();
                 rightMouseHold = true;
             }
@@ -47,11 +49,13 @@ public class BoostJump : MonoBehaviour
         if(rightMouseHold) {
             StopSlowMotion();
             rb.AddForce(cam.transform.forward * 3000 + new Vector3(0, 80, 0));
+            superJumpAvailable = false;
         }
     }
 
     void OnCollisionEnter(Collision collision) {
         StopSlowMotion();
+        superJumpAvailable = true;
     }
 
 

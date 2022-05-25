@@ -26,4 +26,10 @@ public class RespawnOnFall : MonoBehaviour
             GameManager.instance.handleLifeCount();
         }
     }
+
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.CompareTag("Water")) {
+            GameManager.instance.handleLifeCount();
+        }
+    }
 }

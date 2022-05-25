@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {   
         pauseScreen.SetActive(false);
-        Debug.Log("start");
     }
 
     void OnPause() {

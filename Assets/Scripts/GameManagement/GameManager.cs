@@ -53,9 +53,17 @@ public class GameManager : MonoBehaviour
          healthCountText.text = "Health: " + health.ToString();
      }
 
-    public void handleHealthCount () {
+    public void fireDamageHandler () {
         if(health > 1) {
             health--;
+        } else {
+            handleLifeCount();
+        }
+     }
+
+    public void arrowDamageHandler () {
+        if(health-80 > 1) {
+            health -= 80;
         } else {
             handleLifeCount();
         }
@@ -70,6 +78,13 @@ public class GameManager : MonoBehaviour
         else {
             resetLifesAndHealth();
             LevelManager.instance.StartLevelOne();
+        }
+    }
+
+    public void addHealth() {
+        this.health += 40;
+        if(this.health > 100) {
+            this.health = 100;
         }
     }
 
