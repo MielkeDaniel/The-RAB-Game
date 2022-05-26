@@ -32,6 +32,10 @@ public class PlayerController : MonoBehaviour
         pauseScreen.SetActive(false);
     }
 
+    void Update() {
+        Debug.Log(speed);
+    }
+
     void OnPause() {
         
         if(!paused) {
@@ -68,6 +72,22 @@ public class PlayerController : MonoBehaviour
             float targetAngle = Mathf.Atan2(movementX, movementY) * Mathf.Rad2Deg + cam.eulerAngles.y;
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rb.AddForce(moveDir.normalized * speed);
+        }
+    }
+
+    void setSpeed() {
+        speed = 35f;
+    }
+
+    void OnCollisionStay(Collision collision) {
+        if (collision.gameObject.CompareTag("Slow")) {
+            speed = 10f;
+        }
+    }
+
+    void OnCollisionExit(Collision collision) {
+        if (collision.gameObject.CompareTag("Slow")) {
+            Invoke("setSpeed", 1.5f);
         }
     }
 }
