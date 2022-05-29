@@ -48,7 +48,7 @@ public class CamController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
         transform.position = lookAt.position + rotation * Direction * -1;
  
-        transform.LookAt(lookAt.position);
+        transform.LookAt(lookAt.position + new Vector3(0, 3, 0));
     }
 
 

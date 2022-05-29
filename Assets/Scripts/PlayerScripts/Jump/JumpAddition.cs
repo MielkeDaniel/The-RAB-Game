@@ -3,7 +3,7 @@ using System.Collections;
 
 public class JumpAddition : MonoBehaviour
 {
-    public float fallMultiplier = 7.5f;
+    public float fallMultiplier = 10f;
 
     Rigidbody rb;
 

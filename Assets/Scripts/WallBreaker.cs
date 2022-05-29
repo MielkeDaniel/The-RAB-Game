@@ -6,7 +6,7 @@ public class WallBreaker : MonoBehaviour
 {
 
     public GameObject destroyed;
-    private int impulseStrength = 40;
+    private int impulseStrength = 35;
     // Start is called before the first frame update
     void Start()
     {

@@ -48,7 +48,7 @@ public class BoostJump : MonoBehaviour
     void OnSpecialJump() {
         if(rightMouseHold) {
             StopSlowMotion();
-            rb.AddForce(cam.transform.forward * 3000 + new Vector3(0, 80, 0));
+            rb.AddForce(cam.transform.forward * 1500 + new Vector3(0, 80, 0));
             superJumpAvailable = false;
         }
     }

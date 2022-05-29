@@ -9,7 +9,7 @@ public class WallJump : MonoBehaviour
 {
     private Rigidbody rb;
 
-    [SerializeField] private float jumpHeight = 600f;
+    [SerializeField] private float jumpHeight = 900f;
     PlayerJump playerJump;
 
 
