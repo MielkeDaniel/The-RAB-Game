@@ -7,18 +7,8 @@ public class WallBreaker : MonoBehaviour
 
     public GameObject destroyed;
     private int impulseStrength = 35;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    private float collisionStrength;
+    
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Player") && ImpulseTest(collision)) {
             Instantiate(destroyed, transform.position, transform.rotation);
@@ -27,7 +17,8 @@ public class WallBreaker : MonoBehaviour
     }
 
     private bool ImpulseTest(Collision collision) {
-        if(collision.impulse.z > impulseStrength || collision.impulse.z < -impulseStrength || collision.impulse.x > impulseStrength || collision.impulse.x < -impulseStrength || collision.impulse.y > impulseStrength || collision.impulse.y < -impulseStrength) {
+        collisionStrength = Mathf.Abs(collision.impulse.x) + Mathf.Abs(collision.impulse.y) + Mathf.Abs(collision.impulse.z);
+        if(collisionStrength > impulseStrength) {
             return true;
         } else {
             return false;

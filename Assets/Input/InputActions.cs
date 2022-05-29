@@ -71,6 +71,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gui"",
+                    ""type"": ""Button"",
+                    ""id"": ""2c1b95c2-78f1-471a-bea0-e0975ee7e55b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -183,6 +192,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""SpecialJump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""620e310b-0c73-41b5-974b-b4bcb4904230"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gui"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -196,6 +216,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Slowmotion = m_Player.FindAction("Slowmotion", throwIfNotFound: true);
         m_Player_SpecialJump = m_Player.FindAction("SpecialJump", throwIfNotFound: true);
+        m_Player_Gui = m_Player.FindAction("Gui", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -260,6 +281,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Slowmotion;
     private readonly InputAction m_Player_SpecialJump;
+    private readonly InputAction m_Player_Gui;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -269,6 +291,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Slowmotion => m_Wrapper.m_Player_Slowmotion;
         public InputAction @SpecialJump => m_Wrapper.m_Player_SpecialJump;
+        public InputAction @Gui => m_Wrapper.m_Player_Gui;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -293,6 +316,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @SpecialJump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialJump;
                 @SpecialJump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialJump;
                 @SpecialJump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialJump;
+                @Gui.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGui;
+                @Gui.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGui;
+                @Gui.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGui;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -312,6 +338,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @SpecialJump.started += instance.OnSpecialJump;
                 @SpecialJump.performed += instance.OnSpecialJump;
                 @SpecialJump.canceled += instance.OnSpecialJump;
+                @Gui.started += instance.OnGui;
+                @Gui.performed += instance.OnGui;
+                @Gui.canceled += instance.OnGui;
             }
         }
     }
@@ -323,5 +352,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnSlowmotion(InputAction.CallbackContext context);
         void OnSpecialJump(InputAction.CallbackContext context);
+        void OnGui(InputAction.CallbackContext context);
     }
 }

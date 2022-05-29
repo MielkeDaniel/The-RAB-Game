@@ -22,6 +22,7 @@ public class PlayerHealthController : MonoBehaviour
         if(other.gameObject.CompareTag("Heart")) {
             GameManager.instance.addHealth();
             GameManager.instance.initHealthCount(healthCountText);
+            SFXManager.instance.playHeartPickup();
             Destroy(other.gameObject);
         }
     }

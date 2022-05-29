@@ -2,25 +2,21 @@ using UnityEngine;
 
 public class CursorLock : MonoBehaviour
 {
-    void Update()
+
+    private bool cursorLocked;
+    void Start()
     {
-        //Press the space bar to apply no locking to the Cursor
-        if (Input.GetKey(KeyCode.Space))
-            Cursor.lockState = CursorLockMode.None;
+        cursorLocked = false;
     }
 
-    void OnGUI()
+    void OnGui()
     {
-        //Press this button to lock the Cursor
-        if (GUI.Button(new Rect(0, 0, 100, 50), "Lock Cursor"))
-        {
+        if(!cursorLocked){
+            cursorLocked = true;
             Cursor.lockState = CursorLockMode.Locked;
-        }
-
-        //Press this button to confine the Cursor within the screen
-        if (GUI.Button(new Rect(125, 0, 100, 50), "Confine Cursor"))
-        {
-            Cursor.lockState = CursorLockMode.Confined;
+        } else {
+            cursorLocked = false;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }

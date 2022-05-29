@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         } 
-        SceneManager.LoadScene(1);
     }
 
     public void countTimer(Text timerText) { 

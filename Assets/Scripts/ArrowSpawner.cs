@@ -18,7 +18,7 @@ public class ArrowSpawner : MonoBehaviour
     void ShootArrow()
     {
         GameObject arrowInstance = Instantiate(arrow, transform.position, transform.rotation);
-        arrowInstance.GetComponent<Rigidbody>().AddForce(new Vector3(1, 0, 0) * shotForce);
+        arrowInstance.GetComponent<Rigidbody>().AddForce(transform.forward * shotForce);
         Destroy(arrowInstance, 10f);
     }
 }

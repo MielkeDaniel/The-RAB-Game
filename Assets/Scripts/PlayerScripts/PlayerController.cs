@@ -32,12 +32,8 @@ public class PlayerController : MonoBehaviour
         pauseScreen.SetActive(false);
     }
 
-    void Update() {
-        Debug.Log(speed);
-    }
 
     void OnPause() {
-        
         if(!paused) {
             Time.timeScale = 0;
             this.paused = true;

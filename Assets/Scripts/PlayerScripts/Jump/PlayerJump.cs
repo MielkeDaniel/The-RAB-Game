@@ -10,7 +10,7 @@ public class PlayerJump : MonoBehaviour
 
     private Rigidbody rb;
     public bool isGrounded;
-    private float jumpHeight = 1000f;
+    public float jumpHeight = 600f;
     private bool jumpPressed = false;
 
 
@@ -33,7 +33,7 @@ public class PlayerJump : MonoBehaviour
     }
 
     void OnJump() {
-        if (jumpPressed == false && isGrounded) {
+        if (!jumpPressed && isGrounded) {
             jumpPressed = true;
         } 
     }
