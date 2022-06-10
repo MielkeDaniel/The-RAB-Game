@@ -21,6 +21,4 @@ public class Timer : MonoBehaviour
     {
         GameManager.instance.countTimer(timerText);
     }
-
-
 }
