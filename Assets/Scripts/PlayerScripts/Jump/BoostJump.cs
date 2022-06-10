@@ -11,7 +11,7 @@ public class BoostJump : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] Camera cam;
     private bool rightMouseHold;
-    private float slowMotionTimeScale = 0.4f;
+    private float slowMotionTimeScale = 0.3f;
 
     private float startTimeScale;
     private float startFixedDeltatime;

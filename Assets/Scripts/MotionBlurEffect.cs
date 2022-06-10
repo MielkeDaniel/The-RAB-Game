@@ -2,29 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ParticleSystem))]
-public class SlowmoEffectController : MonoBehaviour
+public class MotionBlurEffect : MonoBehaviour
 {
-    private ParticleSystem vfx;
+    private GameObject effect;
     private bool moduleEnabled;
     private Transform cam;
     // Start is called before the first frame update
     void Start()
     {
-        vfx = GetComponent<ParticleSystem>();
+        effect = GameObject.Find("BlurEffect");
         cam = GameObject.Find("Main Camera").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (moduleEnabled) {
-            vfx.transform.position = cam.position + cam.forward * 60;
-            vfx.transform.rotation = cam.rotation;
-        }
-        var emission = vfx.emission;
-        emission.enabled = moduleEnabled;
-        Mouse();
+ 
+            effect.transform.position = cam.position + cam.forward * 3;
+            effect.transform.rotation = cam.rotation;
+       
+      
+ 
     }
 
     void Mouse() {
