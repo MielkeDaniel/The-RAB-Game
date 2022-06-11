@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ParticleSystem))]
-public class SlowmoEffectController : MonoBehaviour
+public class SpeedEffect : MonoBehaviour
 {
     private ParticleSystem vfx;
     private bool moduleEnabled;
     private Transform cam;
+    private Rigidbody player;
     // Start is called before the first frame update
     void Start()
     {
         vfx = GetComponent<ParticleSystem>();
         cam = GameObject.Find("Main Camera").GetComponent<Transform>();
+        player = GameObject.Find("Player").GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -28,13 +29,9 @@ public class SlowmoEffectController : MonoBehaviour
     }
 
     void Mouse() {
-        if (Input.GetMouseButtonDown(1) && Time.timeScale < 1) {
+        if (player.velocity.magnitude > 65) {
             moduleEnabled = true;
-        }
-        if (Time.timeScale == 1) {
-            moduleEnabled = false;
-        }
-        if (Input.GetMouseButtonUp(1)) {
+        } else {
             moduleEnabled = false;
         }
     }
