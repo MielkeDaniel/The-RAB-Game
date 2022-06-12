@@ -29,7 +29,7 @@ public class SpeedEffect : MonoBehaviour
     }
 
     void Mouse() {
-        if (player.velocity.magnitude > 65) {
+        if (player.velocity.magnitude > 75) {
             moduleEnabled = true;
         } else {
             moduleEnabled = false;

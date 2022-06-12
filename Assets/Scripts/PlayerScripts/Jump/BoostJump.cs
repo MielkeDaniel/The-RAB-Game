@@ -12,6 +12,8 @@ public class BoostJump : MonoBehaviour
     [SerializeField] Camera cam;
     private bool rightMouseHold;
     private float slowMotionTimeScale = 0.3f;
+    private float cooldown = 0f;
+    private float lastJump;
 
     private float startTimeScale;
     private float startFixedDeltatime;
@@ -31,8 +33,12 @@ public class BoostJump : MonoBehaviour
 
 
     private void Update() {
+        if (IsOnCooldown()) {
+            CooldownTimer();
+        }
+
         if(Input.GetMouseButtonDown(1)) {
-            if(!playerJump.isGrounded && superJumpAvailable) {
+            if(!playerJump.isGrounded && superJumpAvailable && !IsOnCooldown()) {
                 StartSlowMotion();
                 rightMouseHold = true;
             }
@@ -42,7 +48,15 @@ public class BoostJump : MonoBehaviour
             StopSlowMotion();
             rightMouseHold = false;
         }
+    }
 
+    public void CooldownTimer() {
+        cooldown -= Time.deltaTime;
+        Debug.Log(cooldown);
+    }
+
+    private bool IsOnCooldown() {
+        return cooldown > 0;
     }
 
     void OnSpecialJump() {
@@ -50,6 +64,7 @@ public class BoostJump : MonoBehaviour
             StopSlowMotion();
             rb.AddForce(cam.transform.forward * 1500 + new Vector3(0, 80, 0));
             superJumpAvailable = false;
+            cooldown = 3f;
         }
     }
 
