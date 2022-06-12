@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class RespawnOnFall : MonoBehaviour
 {
-    [SerializeField] private Text lifeCountText;
-
     public Image[] hearts;
     private Rigidbody rb;
     private Vector3 spawnPoint = new Vector3();

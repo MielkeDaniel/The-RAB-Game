@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(6);
     }
 
-    public void StartLevelTwo()
+    public void StartTutorial()
     {
         SceneManager.LoadScene(3);
     }

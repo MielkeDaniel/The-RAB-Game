@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
         timerText.text = "Time Remaining: " + string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
     }
 
-    public void resetTimer() { 
-        this.time = 60;
+    public void resetTimer(int levelTime) { 
+        this.time = levelTime;
     }
 
     public void resetScene() { 
@@ -83,7 +83,11 @@ public class GameManager : MonoBehaviour
             }
         else {
             resetLifesAndHealth();
-            LevelManager.instance.StartLevelOne();
+            if(SceneManager.GetActiveScene().name == "Tutorial") {
+                LevelManager.instance.StartTutorial();
+            } else {
+                LevelManager.instance.StartLevelOne();
+            }
         }
     }
 
