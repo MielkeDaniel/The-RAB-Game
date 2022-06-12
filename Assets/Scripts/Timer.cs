@@ -8,17 +8,23 @@ public class Timer : MonoBehaviour
 {
 
     Text timerText;
+    int time = 30;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.resetTimer();
+        if(SceneManager.GetActiveScene().name == "Level 1") {
+            time = 60;
+        }
+        GameManager.instance.resetTimer(time);
         timerText = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameManager.instance.countTimer(timerText);
+        if(SceneManager.GetActiveScene().name != "Tutorial" ) {
+            GameManager.instance.countTimer(timerText);
+        }
     }
 }
