@@ -13,9 +13,9 @@ public class Menu : MonoBehaviour
         LevelManager.instance.StartLevelOne();
     }
 
-    public void StartLevelTwo()
+    public void StartTutorial()
     {
-        LevelManager.instance.StartLevelTwo();
+        LevelManager.instance.StartTutorial();
     }
 
     public void StartLevelThree()
