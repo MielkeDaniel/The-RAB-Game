@@ -71,19 +71,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void setSpeed() {
-        speed = 35f;
-    }
-
-    void OnCollisionStay(Collision collision) {
-        if (collision.gameObject.CompareTag("Slow")) {
-            speed = 10f;
-        }
-    }
-
-    void OnCollisionExit(Collision collision) {
-        if (collision.gameObject.CompareTag("Slow")) {
-            Invoke("setSpeed", 1.5f);
-        }
-    }
 }

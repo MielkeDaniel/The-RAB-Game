@@ -13,7 +13,8 @@ TagManager:
   - Heart
   - Water
   - Arrow
-  - Slow
+  - Button
+  - Jump
   layers:
   - Default
   - TransparentFX

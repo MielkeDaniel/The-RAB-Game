@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    private float time = 30;
+    private float time = 60;
     private int lifes = 3;
     private int health = 100;
 
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         } else {
             time = 0;
             this.resetScene();
+            handleLifeCount();
         }
 
         if(time <= 0) {
@@ -37,19 +38,25 @@ public class GameManager : MonoBehaviour
     }
 
     public void resetTimer() { 
-        this.time = 30;
+        this.time = 60;
     }
 
     public void resetScene() { 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-     public void initLifeCount (Text lifeCountText) { 
-         lifeCountText.text = "Lifes: " +  lifes.ToString();
+     public void initLifeCount (Image[] hearts) { 
+         for(int i = 0; i < hearts.Length; i++) {
+            if(i < lifes) {
+                hearts[i].enabled = true;
+            } else {
+                hearts[i].enabled = false;
+            }
+         }
      }
 
-     public void initHealthCount (Text healthCountText) {
-         healthCountText.text = "Health: " + health.ToString();
+     public void initHealthCount (Slider slider) {
+         slider.value = health;
      }
 
     public void fireDamageHandler () {

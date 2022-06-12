@@ -10,7 +10,7 @@ public class PlayerJump : MonoBehaviour
 
     private Rigidbody rb;
     public bool isGrounded;
-    public float jumpHeight = 600f;
+    public float jumpHeight = 800f;
     private bool jumpPressed = false;
 
 
@@ -39,12 +39,17 @@ public class PlayerJump : MonoBehaviour
     }
 
     void OnCollisionStay(Collision collision) {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Slow")) {
+        if (collision.gameObject.CompareTag("Ground")) {
             isGrounded = true;
+        }
+        if (collision.gameObject.CompareTag("Jump")) {
+            isGrounded = true;
+            jumpHeight = 2000f;
         }
     }
 
     void OnCollisionExit(Collision collision) {
+        jumpHeight = 800f;
         isGrounded = false;
     }
 }
