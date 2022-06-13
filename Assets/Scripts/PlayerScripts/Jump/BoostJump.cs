@@ -52,7 +52,6 @@ public class BoostJump : MonoBehaviour
 
     public void CooldownTimer() {
         cooldown -= Time.deltaTime;
-        Debug.Log(cooldown);
     }
 
     private bool IsOnCooldown() {

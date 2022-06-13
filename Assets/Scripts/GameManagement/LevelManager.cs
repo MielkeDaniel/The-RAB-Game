@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
 
     public void StartTutorial()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
     public void StartLevelThree()
