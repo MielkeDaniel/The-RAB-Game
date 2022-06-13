@@ -13,7 +13,7 @@ public class MovingPlatform : MonoBehaviour
     public float speed;
     public float delayTime;
 
-    public float delayStart;
+    private float delayStart;
 
     public bool automatic;
 
