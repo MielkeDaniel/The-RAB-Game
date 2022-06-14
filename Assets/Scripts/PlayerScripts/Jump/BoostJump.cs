@@ -39,12 +39,14 @@ public class BoostJump : MonoBehaviour
 
         if(Input.GetMouseButtonDown(1)) {
             if(!playerJump.isGrounded && superJumpAvailable && !IsOnCooldown()) {
+                SFXManager.instance.playSlowMoSound();
                 StartSlowMotion();
                 rightMouseHold = true;
             }
         }
             
         if(Input.GetMouseButtonUp(1)) {
+            if(!playerJump.isGrounded && superJumpAvailable) SFXManager.instance.playStopSlowMoSound();
             StopSlowMotion();
             rightMouseHold = false;
         }
@@ -60,6 +62,7 @@ public class BoostJump : MonoBehaviour
 
     void OnSpecialJump() {
         if(rightMouseHold) {
+            SFXManager.instance.playBoostJumpSound();
             StopSlowMotion();
             rb.AddForce(cam.transform.forward * 1500 + new Vector3(0, 80, 0));
             superJumpAvailable = false;
@@ -69,6 +72,7 @@ public class BoostJump : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision) {
+        if (Time.timeScale < 0.9f) SFXManager.instance.playStopSlowMoSound();
         StopSlowMotion();
         superJumpAvailable = true;
     }

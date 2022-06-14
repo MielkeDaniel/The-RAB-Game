@@ -10,6 +10,7 @@ public class PortalCollider : MonoBehaviour
 
     void OnTriggerEnter(Collider collider) {
         if (collider.gameObject.CompareTag("Player")) {
+            SFXManager.instance.playTeleportSound();
             collider.gameObject.transform.position = new Vector3(x, y, z);
         }
     }

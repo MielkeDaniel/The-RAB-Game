@@ -8,6 +8,7 @@ public class PlayerHealthController : MonoBehaviour
     public Slider slider;
 
     void Start() {
+        Debug.Log("counter");
         GameManager.instance.initHealthCount(slider);
     }
 

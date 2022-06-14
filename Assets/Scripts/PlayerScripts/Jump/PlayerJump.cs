@@ -13,7 +13,6 @@ public class PlayerJump : MonoBehaviour
     public float jumpHeight = 800f;
     private bool jumpPressed = false;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +26,9 @@ public class PlayerJump : MonoBehaviour
     void MovementJump() {
         // If on the ground, stop vertical movement
         if (jumpPressed && isGrounded) {
+            if (jumpHeight > 800f) {
+                SFXManager.instance.playJumpPadSound();
+            }
             rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f));
             jumpPressed = false;
         }

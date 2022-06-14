@@ -56,8 +56,9 @@ public class GameManager : MonoBehaviour
      }
 
      public void initHealthCount (Slider slider) {
+         Debug.Log(slider);
          slider.value = health;
-     }
+    }
 
     public void fireDamageHandler () {
         if(health > 1) {

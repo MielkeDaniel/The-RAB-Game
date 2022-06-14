@@ -10,8 +10,6 @@ public class CamController : MonoBehaviour
  
     public Transform lookAt;
  
-    public Transform Player;
- 
     private float zoomMultiplier = 10f;
     public float targetZoom;
     private float currentX = 0.0f;
