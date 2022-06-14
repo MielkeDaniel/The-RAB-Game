@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: fb98d7b176a3d344a9687c361713a4da
   - enabled: 1
+    path: Assets/Scenes/Endboss.unity
+    guid: ae2d79e0e9ed97b42959808292536c99
+  - enabled: 1
     path: Assets/Scenes/Copy.unity
     guid: c47c719a66689764d88ce23eb95ec71e
   m_configObjects: {}

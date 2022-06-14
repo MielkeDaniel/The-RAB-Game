@@ -15,25 +15,21 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void StartLevelOne()
-    {
-        SceneManager.LoadScene(3);
-    }
-
     public void StartTutorial()
     {
         SceneManager.LoadScene(2);
     }
 
-    public void StartLevelThree()
+    public void StartLevelOne()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void StartFinalBoss()
     {
         SceneManager.LoadScene(4);
     }
 
-    public void StartLevelFour()
-    {
-        SceneManager.LoadScene(5);
-    }
 
     public void MainMenu() {
         SceneManager.LoadScene(1);

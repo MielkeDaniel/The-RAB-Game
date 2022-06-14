@@ -86,8 +86,10 @@ public class GameManager : MonoBehaviour
             resetLifesAndHealth();
             if(SceneManager.GetActiveScene().name == "Tutorial") {
                 LevelManager.instance.StartTutorial();
-            } else {
+            } else if (SceneManager.GetActiveScene().name == "Level 1"){
                 LevelManager.instance.StartLevelOne();
+            } else if (SceneManager.GetActiveScene().name == "Endboss"){
+
             }
         }
     }

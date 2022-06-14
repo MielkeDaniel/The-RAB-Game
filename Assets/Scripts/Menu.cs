@@ -18,14 +18,9 @@ public class Menu : MonoBehaviour
         LevelManager.instance.StartTutorial();
     }
 
-    public void StartLevelThree()
+    public void StartFinalBoss()
     {
-        LevelManager.instance.StartLevelThree();
-    }
-
-    public void StartLevelFour()
-    {
-        LevelManager.instance.StartLevelFour();
+        LevelManager.instance.StartFinalBoss();
     }
 
     public void MainMenu() {
