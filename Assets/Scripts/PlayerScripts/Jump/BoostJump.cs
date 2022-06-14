@@ -63,7 +63,8 @@ public class BoostJump : MonoBehaviour
             StopSlowMotion();
             rb.AddForce(cam.transform.forward * 1500 + new Vector3(0, 80, 0));
             superJumpAvailable = false;
-            cooldown = 3f;
+            rightMouseHold = false;
+            cooldown = 2f;
         }
     }
 
