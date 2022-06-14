@@ -7,7 +7,6 @@ public class WallBreaker : MonoBehaviour
 
     public GameObject destroyed;
     private int impulseStrength = 35;
-    private float collisionStrength;
     
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Player") && ImpulseTest(collision)) {
@@ -17,7 +16,7 @@ public class WallBreaker : MonoBehaviour
     }
 
     private bool ImpulseTest(Collision collision) {
-        collisionStrength = Mathf.Abs(collision.impulse.x) + Mathf.Abs(collision.impulse.y) + Mathf.Abs(collision.impulse.z);
+        float collisionStrength = Mathf.Abs(collision.impulse.x) + Mathf.Abs(collision.impulse.y) + Mathf.Abs(collision.impulse.z);
         if(collisionStrength > impulseStrength) {
             return true;
         } else {
