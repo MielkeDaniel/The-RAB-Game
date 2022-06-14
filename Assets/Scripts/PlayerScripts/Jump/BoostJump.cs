@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-
+using UnityEngine.UI;
 
 public class BoostJump : MonoBehaviour
 {
@@ -13,11 +12,14 @@ public class BoostJump : MonoBehaviour
     private bool rightMouseHold;
     private float slowMotionTimeScale = 0.3f;
     private float cooldown = 0f;
+    private float sliderCooldown = -2f;
     private float lastJump;
 
     private float startTimeScale;
     private float startFixedDeltatime;
     private bool superJumpAvailable;
+
+    public Slider slider;
 
     PlayerJump playerJump;
 
@@ -29,12 +31,14 @@ public class BoostJump : MonoBehaviour
         startTimeScale = Time.timeScale;
         startFixedDeltatime = Time.fixedDeltaTime;
         superJumpAvailable = true;
+        slider.value = 2f;
     }
 
 
     private void Update() {
         if (IsOnCooldown()) {
             CooldownTimer();
+            slider.value = cooldown + sliderCooldown;
         }
 
         if(Input.GetMouseButtonDown(1)) {
@@ -48,10 +52,13 @@ public class BoostJump : MonoBehaviour
             StopSlowMotion();
             rightMouseHold = false;
         }
+
+        
     }
 
     public void CooldownTimer() {
         cooldown -= Time.deltaTime;
+        sliderCooldown += Time.deltaTime * 2;
     }
 
     private bool IsOnCooldown() {
@@ -65,6 +72,7 @@ public class BoostJump : MonoBehaviour
             superJumpAvailable = false;
             rightMouseHold = false;
             cooldown = 2f;
+            sliderCooldown = -2f;
         }
     }
 
