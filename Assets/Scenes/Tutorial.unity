@@ -14503,6 +14503,10 @@ PrefabInstance:
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 908101173}
+    - target: {fileID: 7165351662442328235, guid: 616f464d0d5624443a5460edde0cbd0b, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 7165351662442328236, guid: 616f464d0d5624443a5460edde0cbd0b, type: 3}
       propertyPath: m_Name
       value: Button
