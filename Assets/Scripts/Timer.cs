@@ -6,15 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-
     Text timerText;
-    int time = 30;
+    int time = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         if(SceneManager.GetActiveScene().name == "Level 1") {
-            time = 60;
+            time = 0;
         }
         GameManager.instance.resetTimer(time);
         timerText = GetComponent<Text>();

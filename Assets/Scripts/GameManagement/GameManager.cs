@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    private float time = 60;
+    private float time;
     private int lifes = 3;
     private int health = 100;
 
@@ -19,22 +19,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void countTimer(Text timerText) { 
-        if(time > 0) {
-            time -= Time.deltaTime;
-        } else {
-            time = 0;
-            this.resetScene();
-            handleLifeCount();
-        }
+        time += Time.deltaTime;
 
-        if(time <= 0) {
-            time = 0;
-        }
         float minutes = Mathf.FloorToInt(time / 60);
         float seconds = Mathf.FloorToInt(time % 60);
         float milliseconds = time % 1 * 100;
         
-        timerText.text = "Time Remaining: " + string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+        timerText.text = "Time: " + string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
     }
 
     public void resetTimer(int levelTime) { 
@@ -56,7 +47,6 @@ public class GameManager : MonoBehaviour
      }
 
      public void initHealthCount (Slider slider) {
-         Debug.Log(slider);
          slider.value = health;
     }
 

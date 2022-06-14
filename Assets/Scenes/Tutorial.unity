@@ -9420,7 +9420,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAt: {fileID: 1772829768}
-  Player: {fileID: 1772829768}
   targetZoom: 0
 --- !u!114 &1455374729
 MonoBehaviour:
@@ -14742,7 +14741,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 703318135886459369, guid: 781d644bb8b753a49b309db203bee6f0, type: 3}
       propertyPath: m_Name
-      value: SlowMoEffect
+      value: SpeedEffect
       objectReference: {fileID: 0}
     - target: {fileID: 703318135886459372, guid: 781d644bb8b753a49b309db203bee6f0, type: 3}
       propertyPath: m_RootOrder

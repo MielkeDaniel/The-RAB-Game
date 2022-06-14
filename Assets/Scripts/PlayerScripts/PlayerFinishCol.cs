@@ -22,7 +22,6 @@ public class PlayerFinishCol : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Finish1")) {
-            Debug.Log("Finish1");
             Time.timeScale = 0;
             levelCompleted.SetActive(true);
         } else if (collision.gameObject.CompareTag("Finish2")) {
