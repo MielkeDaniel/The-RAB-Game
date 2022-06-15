@@ -18,9 +18,14 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
 
+    WallJump walljumpState;
+
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
+        GameManager.instance.setCheckpoint(transform.position);
+        GameManager.instance.setPlayer(rb);
+        walljumpState = rb.GetComponent<WallJump>();
         cam = GameObject.Find("Main Camera").GetComponent<Transform>();
         pauseScreen = GameObject.Find("PauseScreen");
         Time.timeScale = 1;
@@ -67,7 +72,12 @@ public class PlayerController : MonoBehaviour
         if (movement.magnitude >= 0.1f) {
             float targetAngle = Mathf.Atan2(movementX, movementY) * Mathf.Rad2Deg + cam.eulerAngles.y;
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            rb.AddForce(moveDir.normalized * speed);
+
+            if (walljumpState.wallJumped == false) {
+                rb.AddForce(moveDir.normalized * speed);
+            } else {
+              rb.AddForce(moveDir.normalized * speed * 0.2f);
+            }
         }
     }
 

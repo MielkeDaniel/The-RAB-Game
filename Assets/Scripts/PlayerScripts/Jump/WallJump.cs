@@ -11,7 +11,7 @@ public class WallJump : MonoBehaviour
 
     [SerializeField] private float jumpHeight = 600f;
     PlayerJump playerJump;
-
+    public bool wallJumped = false;
 
 
     // Start is called before the first frame update
@@ -25,8 +25,15 @@ public class WallJump : MonoBehaviour
     void OnCollisionStay(Collision collision) {   
         if (collision.gameObject.CompareTag("Wall") && !playerJump.isGrounded) {
             if (Input.GetKey("space")) {
-                rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f) + collision.contacts[0].normal * 400);
+                wallJumped = true;
+                rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f) + collision.contacts[0].normal * 500);
             }
+        }
+    }
+
+    void OnCollisionEnter(Collision collision) {   
+        if (collision.gameObject.CompareTag("Ground") && !playerJump.isGrounded) {
+            wallJumped = false;
         }
     }
 }

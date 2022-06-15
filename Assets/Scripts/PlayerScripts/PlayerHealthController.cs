@@ -6,9 +6,11 @@ using UnityEngine;
 public class PlayerHealthController : MonoBehaviour
 {
     public Slider slider;
+    public Image[] hearts;
 
     void Start() {
         GameManager.instance.initHealthCount(slider);
+        GameManager.instance.setHeartImgs(hearts);
     }
 
     void OnParticleCollision(GameObject other) {

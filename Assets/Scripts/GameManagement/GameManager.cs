@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     private float time;
     private int lifes = 3;
     private int health = 100;
+    private Vector3 checkPoint;
+    private Rigidbody playerRb;
+    private Image[] hearts;
 
     public void Awake() {
         if(instance == null) {
@@ -18,9 +21,36 @@ public class GameManager : MonoBehaviour
         } 
     }
 
+    public void setHeartImgs(Image[] hearts) {
+        this.hearts = hearts;
+    }
+
+    public void setCheckpoint(Vector3 checkpoint) {
+        this.checkPoint = checkpoint;
+    }
+
+    public void setPlayer(Rigidbody player) {
+        this.playerRb = player;
+    }
+
+    public void handleLifeCount() {
+        if (lifes > 1) {
+            Debug.Log("lifeloss");
+            lifes--;
+            health = 100;
+            playerRb.velocity = Vector3.zero;
+            playerRb.transform.position = checkPoint;
+            this.initLifeCount(hearts);
+        } else {
+            resetLifesAndHealth();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
+
+
     public void countTimer(Text timerText) { 
         time += Time.deltaTime;
-
         float minutes = Mathf.FloorToInt(time / 60);
         float seconds = Mathf.FloorToInt(time % 60);
         float milliseconds = time % 1 * 100;
@@ -59,30 +89,12 @@ public class GameManager : MonoBehaviour
      }
 
     public void arrowDamageHandler () {
-        if(health-80 > 1) {
+        if(health - 80 > 1) {
             health -= 80;
         } else {
             handleLifeCount();
         }
      }
-
-    public void handleLifeCount() { 
-        if (lifes > 1) {
-            lifes--;
-            this.health = 100;
-            this.resetScene();
-            }
-        else {
-            resetLifesAndHealth();
-            if(SceneManager.GetActiveScene().name == "Tutorial") {
-                LevelManager.instance.StartTutorial();
-            } else if (SceneManager.GetActiveScene().name == "Level 1"){
-                LevelManager.instance.StartLevelOne();
-            } else if (SceneManager.GetActiveScene().name == "Endboss"){
-
-            }
-        }
-    }
 
     public void addHealth() {
         this.health += 40;

@@ -5,24 +5,11 @@ using UnityEngine.Events;
 
 public class PressableButton : MonoBehaviour
 {
-    [SerializeField]
-     private GameObject destroyPrefab;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
+    [SerializeField] private Vector3 checkpointPosition; 
 
     void OnTriggerEnter(Collider collision) {
         if(collision.gameObject.CompareTag("Button")) {
-            Destroy(destroyPrefab);
+            GameManager.instance.setCheckpoint(checkpointPosition);
         }
     }
 
