@@ -1681,6 +1681,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 933137629148763867, guid: 4bc9cb5496fc76c42b0f702e98c410be, type: 3}
+      propertyPath: shotForce
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 1390838550628730258, guid: 4bc9cb5496fc76c42b0f702e98c410be, type: 3}
       propertyPath: Player
       value: 
@@ -1761,7 +1765,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gegner
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8120781865235096176, guid: 4bc9cb5496fc76c42b0f702e98c410be, type: 3}
+      propertyPath: shotForce
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120781866245133103, guid: 4bc9cb5496fc76c42b0f702e98c410be, type: 3}
+      propertyPath: shotForce
+      value: 5000
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8120781866245133102, guid: 4bc9cb5496fc76c42b0f702e98c410be, type: 3}
+    - {fileID: 8120781865235096177, guid: 4bc9cb5496fc76c42b0f702e98c410be, type: 3}
+    - {fileID: 933137629148763866, guid: 4bc9cb5496fc76c42b0f702e98c410be, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4bc9cb5496fc76c42b0f702e98c410be, type: 3}
 --- !u!4 &154838660 stripped
 Transform:
