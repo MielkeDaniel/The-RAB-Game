@@ -9,7 +9,7 @@ public class BurstIntervall : MonoBehaviour
     void Start()
     {
         vfx = GetComponent<ParticleSystem>();
-        InvokeRepeating("SpyFire", 2f, 1f);
+        InvokeRepeating("SpyFire", 3f, 1f);
     }
 
     void SpyFire() {

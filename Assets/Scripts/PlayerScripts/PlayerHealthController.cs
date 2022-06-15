@@ -31,8 +31,8 @@ public class PlayerHealthController : MonoBehaviour
 
     void OnParticleCollision(GameObject other) {
         if(other.tag == "Fire") {
-             if (health > 1) {
-                health --;
+             if (health > 2) {
+                health -= 2;
                 slider.value = health;
             } else {
                 this.resetPlayer();

@@ -8445,6 +8445,22 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 691228817}
+    - target: {fileID: 1917753965683025230, guid: e85790bcea8783d44bc5c090bbcae4e6, type: 3}
+      propertyPath: hearts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917753965683025230, guid: e85790bcea8783d44bc5c090bbcae4e6, type: 3}
+      propertyPath: hearts.Array.data[0]
+      value: 
+      objectReference: {fileID: 691228816}
+    - target: {fileID: 1917753965683025230, guid: e85790bcea8783d44bc5c090bbcae4e6, type: 3}
+      propertyPath: hearts.Array.data[1]
+      value: 
+      objectReference: {fileID: 691228815}
+    - target: {fileID: 1917753965683025230, guid: e85790bcea8783d44bc5c090bbcae4e6, type: 3}
+      propertyPath: hearts.Array.data[2]
+      value: 
+      objectReference: {fileID: 691228814}
     - target: {fileID: 5525815497542161836, guid: e85790bcea8783d44bc5c090bbcae4e6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

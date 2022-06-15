@@ -14755,6 +14755,22 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 2048762838}
+    - target: {fileID: 1917753965683025230, guid: e85790bcea8783d44bc5c090bbcae4e6, type: 3}
+      propertyPath: hearts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917753965683025230, guid: e85790bcea8783d44bc5c090bbcae4e6, type: 3}
+      propertyPath: hearts.Array.data[0]
+      value: 
+      objectReference: {fileID: 2111050094}
+    - target: {fileID: 1917753965683025230, guid: e85790bcea8783d44bc5c090bbcae4e6, type: 3}
+      propertyPath: hearts.Array.data[1]
+      value: 
+      objectReference: {fileID: 5093935}
+    - target: {fileID: 1917753965683025230, guid: e85790bcea8783d44bc5c090bbcae4e6, type: 3}
+      propertyPath: hearts.Array.data[2]
+      value: 
+      objectReference: {fileID: 873512861}
     - target: {fileID: 5525815497542161836, guid: e85790bcea8783d44bc5c090bbcae4e6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -15598,7 +15614,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: Tutorial
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7279570361163444327, guid: 02c1fb413fc324d42a6892ab8ee1fe70, type: 3}
+    - {fileID: 7279570361163444325, guid: 02c1fb413fc324d42a6892ab8ee1fe70, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 02c1fb413fc324d42a6892ab8ee1fe70, type: 3}
 --- !u!224 &7279570361771597880 stripped
 RectTransform:
