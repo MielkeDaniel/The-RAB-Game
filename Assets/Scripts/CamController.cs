@@ -14,7 +14,7 @@ public class CamController : MonoBehaviour
     public float targetZoom;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
-    private float sensivity = 1500f;
+    private float sensivity = 1000f;
 
     Camera cam;
 

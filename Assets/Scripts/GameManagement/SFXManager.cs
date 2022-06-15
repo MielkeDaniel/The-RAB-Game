@@ -13,6 +13,8 @@ public class SFXManager : MonoBehaviour
     public AudioClip boostJumpSound;
     public AudioClip slowMoSound;
     public AudioClip stopSlowMoSound;
+    public AudioClip jumpSound;
+    public AudioClip buttonSound;
 
     public void Awake() {
         if(instance == null) {
@@ -43,6 +45,14 @@ public class SFXManager : MonoBehaviour
 
     public void playStopSlowMoSound () {
         Audio.PlayOneShot(stopSlowMoSound);
+    }
+
+    public void playJumpSound () {
+        Audio.PlayOneShot(jumpSound);
+    }
+
+    public void playButtonSound () {
+        Audio.PlayOneShot(buttonSound);
     }
 
 }

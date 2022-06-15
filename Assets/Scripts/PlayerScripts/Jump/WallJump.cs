@@ -26,7 +26,8 @@ public class WallJump : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall") && !playerJump.isGrounded) {
             if (Input.GetKey("space")) {
                 wallJumped = true;
-                rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f) + collision.contacts[0].normal * 500);
+                rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f) + collision.contacts[0].normal * 400);
+                SFXManager.instance.playJumpSound();
             }
         }
     }

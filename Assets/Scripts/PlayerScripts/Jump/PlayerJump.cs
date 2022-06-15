@@ -28,6 +28,8 @@ public class PlayerJump : MonoBehaviour
         if (jumpPressed && isGrounded) {
             if (jumpHeight > 800f) {
                 SFXManager.instance.playJumpPadSound();
+            }   else {
+                SFXManager.instance.playJumpSound();
             }
             rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f));
             jumpPressed = false;
@@ -41,7 +43,7 @@ public class PlayerJump : MonoBehaviour
     }
 
     void OnCollisionStay(Collision collision) {
-        if (collision.gameObject.CompareTag("Ground")) {
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Button")) {
             isGrounded = true;
         }
         if (collision.gameObject.CompareTag("Jump")) {

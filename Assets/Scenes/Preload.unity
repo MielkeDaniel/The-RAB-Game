@@ -441,6 +441,8 @@ MonoBehaviour:
   boostJumpSound: {fileID: 8300000, guid: 9db837303b93a5842b84b398bc1981fb, type: 3}
   slowMoSound: {fileID: 8300000, guid: 1e421dc15219f314183b04022f0ecf8c, type: 3}
   stopSlowMoSound: {fileID: 8300000, guid: 25c8170a678cc8b47a2a5b2484165aeb, type: 3}
+  jumpSound: {fileID: 8300000, guid: 8336d363561b6b64f820d4c095165e62, type: 3}
+  buttonSound: {fileID: 8300000, guid: 5c6f7e6d3ac7cbe4fb3f605da248d2fa, type: 3}
 --- !u!4 &1382643122
 Transform:
   m_ObjectHideFlags: 0
