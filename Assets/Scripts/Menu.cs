@@ -1,12 +1,11 @@
 /*
- * This menu is used at the start scene and after a level is completed.
+ * This script communicates with the LevelManager and is responsible for loading certain scenes
  */
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    //load next scene after a level is completed or after game started
     public void StartLevelOne()
     {
         LevelManager.instance.StartLevelOne();

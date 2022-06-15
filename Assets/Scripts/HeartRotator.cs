@@ -16,6 +16,7 @@ public class HeartRotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Rotate the heart itself on the Y-axis
         transform.Rotate(rotation * Time.deltaTime);
     }
 }

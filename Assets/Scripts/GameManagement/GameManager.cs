@@ -48,14 +48,4 @@ public class GameManager : MonoBehaviour
     public void resetScene() { 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-     public void initLifeCount (Image[] hearts, int lifes) { 
-         for(int i = 0; i < hearts.Length; i++) {
-            if(i < lifes) {
-                hearts[i].enabled = true;
-            } else {
-                hearts[i].enabled = false;
-            }
-         }
-     }
 }

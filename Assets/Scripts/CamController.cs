@@ -18,8 +18,6 @@ public class CamController : MonoBehaviour
 
     Camera cam;
 
-    
-
     void Start()
     {
         // get the cam object, set the targetZoom, which will be the zoom constant throughout the script 

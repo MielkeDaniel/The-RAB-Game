@@ -18,7 +18,6 @@ public class FreezePosition : MonoBehaviour
         Vector3 localVelocity = transform.InverseTransformDirection(rb.velocity);
         localVelocity.x = 0;
         localVelocity.y = 0;
-         
         rb.velocity = transform.TransformDirection(localVelocity);
     }
 }
