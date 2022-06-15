@@ -87,12 +87,16 @@ public class BoostJump : MonoBehaviour
 
 
     private void StartSlowMotion() {
-        Time.timeScale = slowMotionTimeScale;
-        Time.fixedDeltaTime = startFixedDeltatime * slowMotionTimeScale;
+        if(Time.timeScale != 0) {
+            Time.timeScale = slowMotionTimeScale;
+            Time.fixedDeltaTime = startFixedDeltatime * slowMotionTimeScale;
+        }
     }
 
     private void StopSlowMotion() {
-        Time.timeScale = startTimeScale;
-        Time.fixedDeltaTime = startFixedDeltatime;
+        if(Time.timeScale != 0) {
+            Time.timeScale = startTimeScale;
+            Time.fixedDeltaTime = startFixedDeltatime;
+        }
     }
 }
