@@ -68,15 +68,20 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-        // Check if keyboard input movement is "existent", if so, calculate movement direction based on camera angle and add it as AddForce to the rb
+        // Check if keyboard input movement is "existent" (the movement vector will already be created, when the player inputs with 
+        // the movements keys, before adding force to the rb), if so, calculate movement direction based on camera angle and add 
+        // it as AddForce to the rb
+        // source: Brackeys - THIRD PERSON MOVEMENT in Unity (12:42min) https://www.youtube.com/watch?v=4HpC--2iowE
         if (movement.magnitude >= 0.1f) {
             float targetAngle = Mathf.Atan2(movementX, movementY) * Mathf.Rad2Deg + cam.eulerAngles.y;
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
+            // in case the player performed a walljump, the ability for the player to move will be greatly restricted by only using 20% of
+            // the cabable movement speed
             if (walljumpState.wallJumped == false) {
                 rb.AddForce(moveDir.normalized * speed);
             } else {
-              rb.AddForce(moveDir.normalized * speed * 0.2f);
+                rb.AddForce(moveDir.normalized * speed * 0.2f);
             }
         }
     }

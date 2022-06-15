@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// This class manages the sound effects of the game and is reachable from everywhere as a singleton 
+// and will not be destroyed when a new scene loades
 public class SFXManager : MonoBehaviour
 {
 

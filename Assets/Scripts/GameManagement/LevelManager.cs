@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+
+// This class manages the loading of scenes and is reachable from everywhere as a singleton 
+// and will not be destroyed when a new scene loades
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance = null;

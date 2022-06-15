@@ -10,7 +10,7 @@ public class BurstIntervall : MonoBehaviour
     {
         vfx = GetComponent<ParticleSystem>();
         // Start the intervall in which the particle effect will be turned on and off
-        InvokeRepeating("SpyFire", 3f, 1f);
+        InvokeRepeating("SpyFire", 2f, 2f);
     }
 
     // Based on the current state of the particle effect, turn it on if it´s inactive and off if it´s active

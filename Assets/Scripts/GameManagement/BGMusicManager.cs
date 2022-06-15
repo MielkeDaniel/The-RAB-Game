@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This class is responsible for managing the background music throughout the game as it will not be destroyed when a new scene loads
 public class BGMusicManager : MonoBehaviour
 {
 
