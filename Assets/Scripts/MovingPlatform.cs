@@ -60,4 +60,12 @@ public class MovingPlatform : MonoBehaviour
         }
         currentTarget = points[pointNumber];
     }
+
+    void OnTriggerEnter(Collider other) {
+        other.transform.parent = transform;
+    }
+
+    void OnTriggerExit(Collider other) {
+        other.transform.parent = null;
+    }
 }
