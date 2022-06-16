@@ -3,7 +3,7 @@ using System.Collections;
 
 public class JumpAddition : MonoBehaviour
 {
-    public float fallMultiplier = 9f;
+    public float fallMultiplier = 7f;
     Rigidbody rb;
 
     // Start is called before the first frame update

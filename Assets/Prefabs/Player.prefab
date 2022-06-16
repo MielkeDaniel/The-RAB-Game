@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 5503893737502329101}
   - component: {fileID: 7648793738344303282}
   - component: {fileID: 1917753965683025230}
-  - component: {fileID: 1917753965683025275}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -165,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736a8394558b0f14bb1cff5d4ab9d318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   slider: {fileID: 0}
 --- !u!114 &3361510022827923643
 MonoBehaviour:
@@ -179,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8058db541af49746bb877eeac378cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallMultiplier: 9.81
+  fallMultiplier: 8
 --- !u!114 &720824647055609052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,15 +243,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
---- !u!114 &1917753965683025275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917753965683025225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3131f902e8fb04d8a88197c30f482d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  hearts: []
