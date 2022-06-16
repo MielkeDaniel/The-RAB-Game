@@ -78,7 +78,7 @@ public class PlayerHealthController : MonoBehaviour
     void OnCollisionEnter(Collision collision) {
         if(collision.gameObject.CompareTag("Arrow")) {
             if (health - 80 >= 1) {
-                health -= 80;
+                health -= 50;
                 slider.value = health;
             } else {
                 this.resetPlayer();

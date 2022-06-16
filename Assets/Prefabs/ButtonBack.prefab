@@ -72,7 +72,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7612312494687384113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5adc522c8eaa62e4f9985558b9edad44, type: 3}
+  m_Script: {fileID: 11500000, guid: ee049293bd4e47444ac3a3d8efb512d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyPrefab: {fileID: 0}
+  checkpointPosition: {x: 0, y: 0, z: 0}

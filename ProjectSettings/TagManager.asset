@@ -17,6 +17,7 @@ TagManager:
   - Jump
   - Tutorial
   - Tutorial1
+  - WindArea
   layers:
   - Default
   - TransparentFX

@@ -15,12 +15,13 @@ GameObject:
   - component: {fileID: 9105776404416555319}
   - component: {fileID: 7250486949756636671}
   - component: {fileID: 8545573227357615306}
-  - component: {fileID: 3361510022827923643}
   - component: {fileID: 720824647055609052}
   - component: {fileID: 1477159212638120270}
   - component: {fileID: 5503893737502329101}
   - component: {fileID: 7648793738344303282}
+  - component: {fileID: 5982951638319883613}
   - component: {fileID: 1917753965683025230}
+  - component: {fileID: 1626178689551543150}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -165,19 +166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
---- !u!114 &3361510022827923643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917753965683025225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8058db541af49746bb877eeac378cd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallMultiplier: 8
 --- !u!114 &720824647055609052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b377ff8ef80e0ce45a889a0053324afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 600
   wallJumped: 0
 --- !u!114 &5503893737502329101
 MonoBehaviour:
@@ -230,6 +217,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a9c82a450969043be94a56327f939f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5982951638319883613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917753965683025225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea06f9ab36ff9554395d572dadcecee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1917753965683025230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,3 +243,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
   hearts: []
+--- !u!114 &1626178689551543150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917753965683025225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86d7a441d934ef479ac2637372f0258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

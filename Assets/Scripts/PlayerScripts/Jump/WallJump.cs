@@ -9,7 +9,7 @@ public class WallJump : MonoBehaviour
 {
     private Rigidbody rb;
 
-    [SerializeField] private float jumpHeight = 600f;
+    private float jumpHeight = 1200f;
     PlayerJump playerJump;
     public bool wallJumped = false;
 
@@ -30,9 +30,9 @@ public class WallJump : MonoBehaviour
     // the player colided with at the point of contact 
     void OnCollisionStay(Collision collision) {   
         if (collision.gameObject.CompareTag("Wall") && !playerJump.isGrounded) {
-            if (Input.GetKey("space")) {
+            if (Input.GetKey("space") && !wallJumped) {
                 wallJumped = true;
-                rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f) + collision.contacts[0].normal * 400);
+                rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f) + collision.contacts[0].normal * 800);
                 SFXManager.instance.playJumpSound();
             }
         }
@@ -41,8 +41,6 @@ public class WallJump : MonoBehaviour
     // The PlayerController needs to know when the player has landed from the walljump, so the player can move freely again
     // -> hitting the ground again will reset the walljumped variable to false
     void OnCollisionEnter(Collision collision) {   
-        if (collision.gameObject.CompareTag("Ground")) {
             wallJumped = false;
-        }
     }
 }

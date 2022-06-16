@@ -100,11 +100,9 @@ public class BoostJump : MonoBehaviour
     // Hitting the ground again will stop the matrix mode and set the superJumpAvailable to true again (while the player is in the air
     // he can´t perform the superjump again until he hits the ground (and the cooldown has run out))
     void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.CompareTag("Ground")) {
             if (Time.timeScale < 0.9f) SFXManager.instance.playStopSlowMoSound();
             StopSlowMotion();
             superJumpAvailable = true;
-         }
     }
 
 
