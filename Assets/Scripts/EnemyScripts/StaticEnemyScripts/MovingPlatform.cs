@@ -6,16 +6,11 @@ public class MovingPlatform : MonoBehaviour
 {
 
     public Vector3[] points;
-    public int pointNumber = 0;
-    private Vector3 currentTarget;
-
-    public float tolerance;
     public float speed;
     public float delayTime;
-
+    private int pointNumber = 0;
+    private Vector3 currentTarget;
     private float delayStart;
-
-    public bool automatic;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +18,6 @@ public class MovingPlatform : MonoBehaviour
         if(points.Length > 0) {
             currentTarget = points[0];
         }
-        tolerance = speed * Time.deltaTime;
     }
 
     // Update is called once per frame
@@ -37,19 +31,16 @@ public class MovingPlatform : MonoBehaviour
     }
 
     void MovePlatform() {
-        Vector3 heading = currentTarget - transform.position;
-        transform.position += (heading / heading.magnitude) * speed * Time.deltaTime;
-        if(heading.magnitude < tolerance) {
-            transform.position = currentTarget;
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, currentTarget, step);
+        if(transform.position == currentTarget) {
             delayStart = Time.time;
         }
     }
 
     void UpdateTarget() {
-        if(automatic) {
-            if(Time.time - delayStart > delayTime) {
-                NextPlatform();
-            }
+        if(Time.time - delayStart > delayTime) {
+            NextPlatform();
         }
     }
 

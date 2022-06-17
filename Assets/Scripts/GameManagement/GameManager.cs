@@ -61,4 +61,10 @@ public class GameManager : MonoBehaviour
     public void resetScene() { 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void highscoreCheck() {
+        if(time < PlayerPrefs.GetFloat("Highscore") || PlayerPrefs.GetFloat("Highscore") == 0) {
+            PlayerPrefs.SetFloat("Highscore", time);
+        }
+    }
 }

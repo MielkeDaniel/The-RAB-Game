@@ -12,11 +12,16 @@ public class PlayerHealthController : MonoBehaviour
     private int lifes = 3;
     private int health = 100;
     public Image[] hearts;
+    GameObject GameOver;
+    public Image fadeImage;
 
     // Start is called before the first frame update and sets the slider´s value to 100, which equals 100% and initializes the lifecount
     void Start() {
         slider.value = health;
         this.initLifeCount();
+        GameOver = GameObject.Find("GameOver");
+        GameOver.SetActive(false);
+        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f);
     }
 
     // The hearts array is filled with images, which are used to display the player's lifecount in the hud 
@@ -40,12 +45,28 @@ public class PlayerHealthController : MonoBehaviour
             lifes--;
             health = 100;
             slider.value = health;
+            fadeOnDeath();
             this.initLifeCount();
         } else {
             // In case the player has no lifes left, the scene will be reloaded all the way and the player has to redo all his progress
             lifes = 3;
             health = 100;
-            GameManager.instance.resetScene();
+            Time.timeScale = 0;
+            GameManager.instance.respawnOnCheckpoint();
+            GameOver.SetActive(true);
+        }
+    }
+
+    private void fadeOnDeath() {
+        float alpha = 0f;
+        while(fadeImage.color.a < 1) {
+            alpha += Time.deltaTime / 2;
+            fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
+        }
+
+        while(fadeImage.color.a > 0) {
+            alpha -= Time.deltaTime / 2;
+            fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
         }
     }
 
@@ -68,6 +89,12 @@ public class PlayerHealthController : MonoBehaviour
         if(other.gameObject.CompareTag("Heart")) {
             this.health += 80;
             slider.value = health;
+            SFXManager.instance.playHeartPickup();
+            Destroy(other.gameObject);
+        }
+        if(other.gameObject.CompareTag("LifePickup")) {
+            this.lifes += 1;
+            this.initLifeCount();
             SFXManager.instance.playHeartPickup();
             Destroy(other.gameObject);
         }

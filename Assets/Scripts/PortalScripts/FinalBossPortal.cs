@@ -10,6 +10,7 @@ public class FinalBossPortal : MonoBehaviour
         if (collider.gameObject.CompareTag("Player")) {
             SFXManager.instance.playTeleportSound();
             LevelManager.instance.StartFinalBoss();
+            GameManager.instance.highscoreCheck();
         }
     }
 }

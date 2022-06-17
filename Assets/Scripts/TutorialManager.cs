@@ -24,12 +24,31 @@ public class TutorialManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Tutorial")) {
-            if(imageIndex <= 9) {
-                imageIndex++;
-            }
+            imageIndex = 1;
         }
         if (other.gameObject.CompareTag("Tutorial1")) {
             imageIndex = 2;
+        }
+        if (other.gameObject.CompareTag("Tutorial2")) {
+            imageIndex = 3;
+        }
+        if (other.gameObject.CompareTag("Tutorial3")) {
+            imageIndex = 4;
+        }
+        if (other.gameObject.CompareTag("Tutorial4")) {
+            imageIndex = 5;
+        }
+        if (other.gameObject.CompareTag("Tutorial5")) {
+            imageIndex = 6;
+        }
+        if (other.gameObject.CompareTag("Tutorial6")) {
+            imageIndex = 7;
+        }
+        if (other.gameObject.CompareTag("Tutorial7")) {
+            imageIndex = 8;
+        }
+        if (other.gameObject.CompareTag("Tutorial8")) {
+            imageIndex = 9;
         }
         loadImages(imageIndex);
     }
