@@ -57,6 +57,7 @@ public class PlayerHealthController : MonoBehaviour
         }
     }
 
+    //This function slowly sets the alpha of a black Image to 1 and then back to 0 to generate a fading animation when the player dies
     private void fadeOnDeath() {
         float alpha = 0f;
         while(fadeImage.color.a < 1) {
@@ -76,7 +77,7 @@ public class PlayerHealthController : MonoBehaviour
         if(other.tag == "Fire") {
              if (health > 3) {
                 health -= 2;
-                // seth the slider´s value to the current health
+                // set the slider´s value to the current health
                 slider.value = health;
             } else {
                 this.resetPlayer();

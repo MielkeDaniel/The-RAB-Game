@@ -20,6 +20,7 @@ public class PlayerFinishCol : MonoBehaviour
         levelCompleted.SetActive(false);
     }
 
+    //When the player reches the finish the timeScale is set to 0 so he is not able to move anymore and a canvas is set active
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Finish1")) {
             Time.timeScale = 0;

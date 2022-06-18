@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    //Checks if the current time is lower than the players highscore
     public void highscoreCheck() {
         if(time < PlayerPrefs.GetFloat("Highscore") || PlayerPrefs.GetFloat("Highscore") == 0) {
             PlayerPrefs.SetFloat("Highscore", time);

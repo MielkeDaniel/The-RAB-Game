@@ -12,7 +12,7 @@ public class FreezePosition : MonoBehaviour
         rb = GetComponent<Rigidbody>();   
     }
 
-    // Update is called once per frame
+    //This function is used to freeze the x and y position of a rigidbody in the local space
     void Update()
     {
         Vector3 localVelocity = transform.InverseTransformDirection(rb.velocity);

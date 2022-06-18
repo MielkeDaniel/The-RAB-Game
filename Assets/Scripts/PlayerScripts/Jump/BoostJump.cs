@@ -43,6 +43,7 @@ public class BoostJump : MonoBehaviour
     private void Update() {
         if (IsOnCooldown()) {
             CooldownTimer();
+            //The cooldown slider value has to be at 0 when the cooldown is at its highest and the other way around
             slider.value = cooldown + sliderCooldown;
         }
 
@@ -67,8 +68,10 @@ public class BoostJump : MonoBehaviour
         }  
     }
 
-    // The superjump has a 2 second cooldown so he can't be performed two fast in a row, making it more difficult for speedrunners to 
+    // The superjump has a 2 second cooldown so he can't be performed to fast in a row, making it more difficult for speedrunners to 
     // abuse the boost jump too much
+    //To ensure that the cooldown slider is at the opposite value of the cooldown it gets added the deltaTime * 2
+    //if this didnt happen the slider would be empty if the superjump was available
     public void CooldownTimer() {
         cooldown -= Time.deltaTime;
         sliderCooldown += Time.deltaTime * 2;

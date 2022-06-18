@@ -9,19 +9,14 @@ public class TutorialManager : MonoBehaviour
     public Image[] tutorialImages;
     private int imageIndex;
 
-    // Start is called before the first frame update
+    //Sets the image to the first tutorial image
     void Start()
     {
         imageIndex = 0;
         loadImages(imageIndex);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Sets the imageIndex for the collider the player collided with
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Tutorial")) {
             imageIndex = 1;
@@ -53,6 +48,7 @@ public class TutorialManager : MonoBehaviour
         loadImages(imageIndex);
     }
 
+    //activates the image with the imageIndex and deactivates all other images
     void loadImages(int index) {
         for(int i = 0; i < tutorialImages.Length; i++) {
                 if(i == imageIndex) {

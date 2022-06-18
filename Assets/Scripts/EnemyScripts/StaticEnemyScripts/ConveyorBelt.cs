@@ -14,7 +14,8 @@ public class ConveyorBelt : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+    //This function takes the current position of the rigidbody and then slightly moves it in its forward direction and then sets it back to its starting position
+    //This generates drag which creates the effect of a conveyor belt
     void FixedUpdate()
     {
         Vector3 pos = rb.position;

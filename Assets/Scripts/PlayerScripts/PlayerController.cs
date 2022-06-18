@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    //When the player clicks escape the timeScale is set to 0 and a pause screen is shown
     void OnPause() {
         if(!paused) {
             Time.timeScale = 0;

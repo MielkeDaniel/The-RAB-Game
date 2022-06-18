@@ -7,11 +7,13 @@ public class ArrowSpawner : MonoBehaviour
 
     public float shotForce = 5000;
     public GameObject arrow;
+    public float startDelay = 1f;
+    public float shootIntervall = 2.5f;
 
     void Start()
     {
         // Start the intervall in which the particle effect will be turned on and off
-        InvokeRepeating("ShootArrow", 1.0f, 2.5f);
+        InvokeRepeating("ShootArrow", startDelay, shootIntervall);
     }
 
     // Instantiate an arrow, transform and rotate it to the right direction and shoot it forward with the given force

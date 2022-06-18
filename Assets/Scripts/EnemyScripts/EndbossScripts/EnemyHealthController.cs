@@ -17,6 +17,9 @@ public class EnemyHealthController : MonoBehaviour
         GameWon.SetActive(false);
     }
 
+    //When the player collides with the enemy with enough force the enemy loses a life, 
+    //if the enemy has no lifes left a destroyed version gets instantiated and the old enemy gets deleted from the scene
+    //also the GameWon Canvas gets activated
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Player") && ImpulseTest(collision)) {
             lifes--;
@@ -36,6 +39,8 @@ public class EnemyHealthController : MonoBehaviour
         }
     }
 
+    //This function tests if the collision had the required force and returns true or false
+    //For that it adds up the absolute value of every impulse direction
     private bool ImpulseTest(Collision collision) {
         float collisionStrength = Mathf.Abs(collision.impulse.x) + Mathf.Abs(collision.impulse.y) + Mathf.Abs(collision.impulse.z);
         if(collisionStrength > impulseStrength) {
