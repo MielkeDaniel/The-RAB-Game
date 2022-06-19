@@ -6,7 +6,7 @@ public class PlayerWindCollider : MonoBehaviour
 {
 
     private Rigidbody rb;
-    private int windMultiplier = 1;
+    private int windMultiplier = 10;
 
 
     // Start is called before the first frame update

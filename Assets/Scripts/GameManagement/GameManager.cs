@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private float time;
     private Rigidbody playerRb;
     private Vector3 checkPoint;
+    private bool timerRunning = true;
 
     public void Awake() {
         if(instance == null) {
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     // the countTimer is needed in the gamemanager, as it manages and stores the high scores from all the runs
     public void countTimer(Text timerText) { 
+        if (timerRunning) {
         // time starts at 0 and add´s up each frame using time.deltatime
         time += Time.deltaTime;
 
@@ -50,6 +52,15 @@ public class GameManager : MonoBehaviour
         
         // display the time in the HUD
         timerText.text = "Time: " + string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+        }
+    }
+
+    public void stopTimer() {
+        timerRunning = false;
+    }
+
+    public void startTimer() {
+        timerRunning = true;
     }
 
     // resets the timer value to 0
@@ -63,9 +74,16 @@ public class GameManager : MonoBehaviour
     }
 
     //Checks if the current time is lower than the players highscore
-    public void highscoreCheck() {
-        if(time < PlayerPrefs.GetFloat("Highscore") || PlayerPrefs.GetFloat("Highscore") == 0) {
-            PlayerPrefs.SetFloat("Highscore", time);
+    public void stageOneHighscoreCheck() {
+        if(time < PlayerPrefs.GetFloat("stageOneHs") || PlayerPrefs.GetFloat("stageOneHs") == 0) {
+            PlayerPrefs.SetFloat("stageOneHs", time);
+        }
+    }
+
+    //Checks if the current time is lower than the players highscore
+    public void finalBossHighscoreCheck() {
+        if(time < PlayerPrefs.GetFloat("finalBossHs") || PlayerPrefs.GetFloat("finalBossHs") == 0) {
+            PlayerPrefs.SetFloat("finalBossHs", time);
         }
     }
 }

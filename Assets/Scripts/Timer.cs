@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     {
         GameManager.instance.resetTimer();
         timerText = GetComponent<Text>();
+        GameManager.instance.startTimer();
     }
 
     void Update()

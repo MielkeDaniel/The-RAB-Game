@@ -26,6 +26,8 @@ public class EnemyHealthController : MonoBehaviour
             if(lifes == 0) {
                 Instantiate(destroyed, transform.position, transform.rotation);
                 Destroy(this.gameObject);
+                GameManager.instance.finalBossHighscoreCheck();
+                GameManager.instance.stopTimer();
                 GameWon.SetActive(true);
             }
             for(int i = 0; i < hearts.Length; i++) {

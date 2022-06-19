@@ -45,7 +45,7 @@ public class PlayerHealthController : MonoBehaviour
             lifes--;
             health = 100;
             slider.value = health;
-            fadeOnDeath();
+            StartCoroutine(fade());
             this.initLifeCount();
         } else {
             // In case the player has no lifes left, the scene will be reloaded all the way and the player has to redo all his progress
@@ -58,16 +58,17 @@ public class PlayerHealthController : MonoBehaviour
     }
 
     //This function slowly sets the alpha of a black Image to 1 and then back to 0 to generate a fading animation when the player dies
-    private void fadeOnDeath() {
+    private IEnumerator fade() {
         float alpha = 0f;
         while(fadeImage.color.a < 1) {
-            alpha += Time.deltaTime / 2;
+            alpha += Time.deltaTime;
             fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
         }
 
         while(fadeImage.color.a > 0) {
-            alpha -= Time.deltaTime / 2;
+            alpha -= Time.deltaTime;
             fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
+            yield return null;
         }
     }
 
