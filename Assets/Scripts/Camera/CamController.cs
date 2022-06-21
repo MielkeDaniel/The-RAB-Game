@@ -14,7 +14,7 @@ public class CamController : MonoBehaviour
     public float targetZoom;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
-    private float sensivity = 750f;
+    private float sensitivity = 1000f;
 
     Camera cam;
 
@@ -24,6 +24,7 @@ public class CamController : MonoBehaviour
         cam = gameObject.GetComponent<Camera>();
         lookAt = GameObject.Find("Player").GetComponent<Transform>();
         targetZoom = 20f;
+        sensitivity = PlayerPrefs.GetFloat("MouseSens") * sensitivity;
     }
  
     // Update is called once per frame
@@ -38,8 +39,8 @@ public class CamController : MonoBehaviour
         targetZoom = Mathf.Clamp(targetZoom, 4.5f, 30f);
 
         // get the x and y mouse input axis to rotate the camera based on the input
-        currentX += Input.GetAxis("Mouse X") * sensivity * Time.deltaTime;
-        currentY += Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
+        currentX += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        currentY += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
         // clamp the y axis to a min and max value, so the palyer can´t rotate the camera upside down
         currentY =  Mathf.Clamp(currentY, YMin, YMax);
  
