@@ -24,6 +24,7 @@ public class EnemyHealthController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && ImpulseTest(collision)) {
             lifes--;
             if(lifes == 0) {
+                GameManager.instance.gameRunning = false;
                 Instantiate(destroyed, transform.position, transform.rotation);
                 Destroy(this.gameObject);
                 GameManager.instance.finalBossHighscoreCheck();
