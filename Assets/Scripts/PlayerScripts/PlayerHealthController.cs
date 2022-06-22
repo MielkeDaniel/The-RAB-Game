@@ -22,6 +22,7 @@ public class PlayerHealthController : MonoBehaviour
         GameOver = GameObject.Find("GameOver");
         GameOver.SetActive(false);
         fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f);
+        GameManager.instance.gameRunning = true;
     }
 
     // The hearts array is filled with images, which are used to display the player's lifecount in the hud 
@@ -53,20 +54,19 @@ public class PlayerHealthController : MonoBehaviour
             health = 100;
             Time.timeScale = 0;
             GameManager.instance.respawnOnCheckpoint();
+            GameManager.instance.gameRunning = false;
+            GameManager.instance.unLockCursor();
             GameOver.SetActive(true);
         }
     }
 
     //This function slowly sets the alpha of a black Image to 1 and then back to 0 to generate a fading animation when the player dies
     private IEnumerator fade() {
-        float alpha = 0f;
-        while(fadeImage.color.a < 1) {
-            alpha += Time.deltaTime;
-            fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
-        }
+        float alpha = 1f;
+        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
 
         while(fadeImage.color.a > 0) {
-            alpha -= Time.deltaTime;
+            alpha -= Time.deltaTime / 2;
             fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
             yield return null;
         }

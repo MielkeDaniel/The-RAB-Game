@@ -11,6 +11,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+    public bool cursorLocked;
+    public bool gameRunning = true;
     private float time;
     private Rigidbody playerRb;
     private Vector3 checkPoint;
@@ -86,4 +88,15 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat("finalBossHs", time);
         }
     }
+
+    public void lockCursor() {
+        cursorLocked = true;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void unLockCursor() {
+        cursorLocked = false;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    
 }

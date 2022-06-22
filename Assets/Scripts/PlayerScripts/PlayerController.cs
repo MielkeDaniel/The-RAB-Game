@@ -40,11 +40,13 @@ public class PlayerController : MonoBehaviour
 
     //When the player clicks escape the timeScale is set to 0 and a pause screen is shown
     void OnPause() {
-        if(!paused) {
+        if(!paused && GameManager.instance.gameRunning) {
+            GameManager.instance.unLockCursor();
             Time.timeScale = 0;
             this.paused = true;
             pauseScreen.SetActive(true);
-        } else {
+        } else if(paused) {
+            Debug.Log("Test");
             this.paused = false;
             pauseScreen.SetActive(false);
             Time.timeScale = 1;
@@ -52,6 +54,8 @@ public class PlayerController : MonoBehaviour
     }
 
      public void onContinue() {
+        GameManager.instance.lockCursor();
+        this.paused = false;
         pauseScreen.SetActive(false);
         Time.timeScale = 1;
     }

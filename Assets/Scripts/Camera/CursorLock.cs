@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class CursorLock : MonoBehaviour
 {
-    private bool cursorLocked;
 
     void Start()
     {
-        cursorLocked = false;
+        GameManager.instance.cursorLocked = true;
+        GameManager.instance.lockCursor();
     }
 
     // New Inputsystem-Button: E 
     // If the button was pressed, the cursor will be locked or unlocked depending on the current state of "cursorLocked" 
     void OnGui()
     {
-        if(!cursorLocked) {
-            cursorLocked = true;
-            Cursor.lockState = CursorLockMode.Locked;
+        if(!GameManager.instance.cursorLocked) {
+            GameManager.instance.cursorLocked = true;
+            GameManager.instance.lockCursor();
         } else {
-            cursorLocked = false;
-            Cursor.lockState = CursorLockMode.None;
+            GameManager.instance.cursorLocked = false;
+            GameManager.instance.unLockCursor();
         }
     }
 }
