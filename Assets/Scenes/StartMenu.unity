@@ -7541,7 +7541,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Stage 1: No Time'
+  m_Text: 'Stage 1:'
 --- !u!1 &1270513132
 GameObject:
   m_ObjectHideFlags: 0
@@ -7789,7 +7789,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Final Boss: No Time'
+  m_Text: 'Final Boss:'
 --- !u!222 &1281036128
 CanvasRenderer:
   m_ObjectHideFlags: 0

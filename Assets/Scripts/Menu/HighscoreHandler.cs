@@ -36,7 +36,7 @@ public class HighscoreHandler : MonoBehaviour
         
         //Checks if the player has completed the game before
         if(time != 0) {
-            highscoreText.text = "Time: " + string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+            highscoreText.text = highscoreText.text + " " + string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
         }
     }
 
