@@ -47,3 +47,17 @@ However this error does `not` have any impact on the game itself.
 
 When building the game you also migh get warnings in connection with some of the shaders.
 Those are not related to our code and do not have any impact on the game itself.
+
+## Github repository
+
+https://github.com/MielkeDaniel/The-RAB-Game
+
+## About us
+
+Name: Sander Speitling
+Matrikelnummer: 690663
+Mail: sander.speitling@stud.hs-flensburg.de
+
+Name: Daniel Mielke 690857
+Matrikelnummer: 690857
+Mail: daniel.mielke@stud.hs-flensburg.de
